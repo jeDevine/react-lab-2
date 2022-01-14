@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import Post from '../models/post';
+import "./PostForm.css";
 
-const PostInList = ({Title, Thought}:Post) => {
-    const [] = useState();
+interface Prop {
+    post: Post;
+    onDelete: () => void;
+}
+
+const PostInList = ({post, onDelete}: Prop) => {
     return (
         <div>
-            <h2>{Title}</h2>
-            <p>{Thought}</p>
+            <h2>{post.Title}</h2>
+            <p>{post.Thought}</p>
+            <button onClick={onDelete}>Delete <i className="fa fa-trash"></i></button>
         </div>
     )
 }

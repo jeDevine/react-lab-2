@@ -19,17 +19,25 @@ const SocialPosts = () => {
     ]);
 
     const handlePostFormSubmit = (post: Post) => {
-        console.log("hpfs fired")
-        setPosts(prev => [...posts, post]);
+        setPosts(prev => [...prev, post]);
         setFormActive(false);
+    }
+
+    const handleDeletePost = (index: number) => {
+        console.log("delete firing")
+        setPosts(prev => {
+            const newPosts = prev.slice(0);
+            newPosts.splice (index, 1);
+            return newPosts;
+        })
     }
 
     return (
         <div>
             <h1>My Thoughts</h1>
-            {posts.map(post => <PostInList Title={post.Title} Thought={post.Thought}/>)}
+            {posts.map((post, i) => <PostInList onDelete={() => handleDeletePost(i)} key={i} post={post}/>)}
             <button onClick={() => setFormActive(true)}>New Thought</button>
-            {formActive ? <PostForm onClose={() => setFormActive(false)} onSubmit={handlePostFormSubmit}/> : <div></div>}
+            {formActive ?  <PostForm onSubmit={handlePostFormSubmit} onClose={() => setFormActive(false)} /> : <div></div>}
         </div>
     )
 }
