@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Post from '../models/post';
-import "./PostForm.css";
+import "./PostInList.css";
+// import FontAwesomeIcon component from @fortawesome/react-fontawesome to and import spacific icon
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 interface Prop {
     post: Post;
@@ -12,7 +15,8 @@ const PostInList = ({post, onDelete}: Prop) => {
         <div>
             <h2>{post.Title}</h2>
             <p>{post.Thought}</p>
-            <button onClick={onDelete}>Delete <i className="fa fa-trash"></i></button>
+            {/* add component and icon prop with icon string name to actually add icon to page */}
+            <button onClick={onDelete}><FontAwesomeIcon icon={faTrashAlt} /></button>
         </div>
     )
 }

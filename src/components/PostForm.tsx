@@ -27,8 +27,8 @@ const PostForm = ({onClose, onSubmit}: Prop) => {
             <div className="modal-content">
                 <form onSubmit={handleSubmit}>
                     <button className="button" onClick={onClose}>X</button>
-                    <label htmlFor="title">Title:<br></br><input type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} /></label>
-                    <label htmlFor="thought">Thought:<br></br><input type="text" name="thought" value={thought} onChange={e => setThought(e.target.value)} /></label>
+                    <label htmlFor="title">Title:<br /><input type="text" name="title" className="title" value={title} onChange={e => setTitle(e.target.value)} /></label><br />
+                    <label htmlFor="thought">Thought:<br /><input type="text" name="thought" className="thought" value={thought} onChange={e => setThought(e.target.value)} /></label><br />
                     <button type="submit">Add Post</button>
                 </form>
             </div>
