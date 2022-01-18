@@ -33,10 +33,10 @@ const SocialPosts = () => {
     }
 
     return (
-        <div>
+        <div className="div">
             <h1>My Thoughts</h1>
+            <button onClick={() => setFormActive(true)} className="new">New Thought</button>
             {posts.map((post, i) => <PostInList onDelete={() => handleDeletePost(i)} key={i} post={post}/>)}
-            <button onClick={() => setFormActive(true)}>New Thought</button>
             {formActive ?  <PostForm onSubmit={handlePostFormSubmit} onClose={() => setFormActive(false)} /> : <div></div>}
         </div>
     )

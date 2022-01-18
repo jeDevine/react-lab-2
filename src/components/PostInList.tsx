@@ -12,11 +12,11 @@ interface Prop {
 
 const PostInList = ({post, onDelete}: Prop) => {
     return (
-        <div>
+        <div className="d">
             <h2>{post.Title}</h2>
             <p>{post.Thought}</p>
             {/* add component and icon prop with icon string name to actually add icon to page */}
-            <button onClick={onDelete}><FontAwesomeIcon icon={faTrashAlt} /></button>
+            <button className="trash"onClick={onDelete}><FontAwesomeIcon icon={faTrashAlt} /></button>
         </div>
     )
 }
